@@ -1,23 +1,5 @@
-// const a = "4";
-// let b = "5"
-//
-// // const arr = [];
-// // arr[0] = prompt("как твое имя?", " 54 ")
-// // arr[1] = prompt("как твое день рождения", " 54 ")
-// // arr[2] = prompt("как твое фамилия?", " 54 ")
-// //
-// // console.log(arr);
-// //
-// console.log(+a + +b );
-// // console.log(`${a} дядя ${b}.`)
-// let x = 3,
-//     s = 5;
 
 let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-let lustFilm = prompt("Какой последний фильм вы просмотрели?"),
-    starFilm = prompt("На сколько оцените его?");
-let lustFilm1 = prompt("Какой последний фильм вы просмотрели?"),
-    starFilm2 = prompt("На сколько оцените его?");
 
 let personalMovieDB = {
     count: numberOfFilms,
@@ -26,9 +8,27 @@ let personalMovieDB = {
     genres: [],
     privat: false,
 };
+let i = 0;
+while (i < 2) {
+    i++
+    let lustFilm = prompt("Какой последний фильм вы просмотрели?"),
+        starFilm = prompt("На сколько оцените его?");
+    if (lustFilm != null && starFilm != null && lustFilm !== "" && starFilm !== "" && lustFilm.length <= 50 && starFilm.length <= 50) {
+        personalMovieDB.movies[lustFilm] = starFilm;
 
-personalMovieDB.movies[lustFilm]=starFilm;
-personalMovieDB.movies[lustFilm1]=starFilm2;
+    } else {
+        console.log("error");
+        i--
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    alert("Просмотрено довольно мало фильмов")
+} else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+    alert("Вы классический зритель")
+} else if (personalMovieDB.count > 30) {
+    alert("Вы киноман")
+}
 
 
-console.log(personalMovieDB)
+console.log(personalMovieDB);
